@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+5.times do |n|
+    Playlist.create(playlist_id:"pid#{n}",name:"name#{n}",user_id:"uid1")
+end
