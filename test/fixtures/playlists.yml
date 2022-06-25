@@ -2,8 +2,8 @@
 
 one:
   playlist_id: MyText
-  user_id: MyText
+  name: MyText
 
 two:
   playlist_id: MyText
-  user_id: MyText
+  name: MyText

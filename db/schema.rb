@@ -10,22 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_25_085608) do
+ActiveRecord::Schema.define(version: 2022_06_25_144540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "playlists", force: :cascade do |t|
-    t.text "playlist_id"
-    t.text "user_id"
+    t.text "playlist_id", null: false
+    t.text "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "user_id", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.text "uid"
-    t.text "name"
-    t.text "avatar"
+  create_table "users", primary_key: "uid", id: :text, force: :cascade do |t|
+    t.text "name", null: false
+    t.text "avatar", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
