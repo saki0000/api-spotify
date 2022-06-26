@@ -4,6 +4,7 @@ module Mutations
         
         field :playlist, Types::PlaylistType,null:true 
         argument :playlist_id,String,required:true
+        argument :name,String,required:true
         argument :user_id,String,required:true
         
         

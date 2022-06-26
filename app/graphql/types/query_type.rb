@@ -20,9 +20,22 @@ module Types
     def user(uuid:)
       User.where(uid: uuid)
     end
-    field :users,[Types::UserType],null:false
+
+    field :users,Types::UserType.connection_type,null:false
     def users
       User.all
+    end
+
+    field :user_playlists,Types::PlaylistType.connection_type,null:false,description:"User's Playlists" do
+      argument :uuid,String,required:true
+    end
+    def user_playlists(uuid:)
+      Playlist.where(user_id: uuid)
+    end
+
+    field :playlists,Types::PlaylistType.connection_type,null:false,description:"All Playlists"
+    def playlists
+      Playlist.all
     end
   end
 end
